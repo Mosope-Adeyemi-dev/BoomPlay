@@ -1,7 +1,11 @@
 <template>
-  <p>welcome</p>
+  <div />
 </template>
 
 <script>
-export default {}
+export default {
+  mounted () {
+    this.$router.push('/sign-up')
+  }
+}
 </script>

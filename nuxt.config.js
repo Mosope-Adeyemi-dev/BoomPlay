@@ -20,11 +20,11 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
+  css: ['~/assets/css/main.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
+  plugins: ['~/plugins/aos.client.js', '~/plugins/vue-toasted.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -45,12 +45,27 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    // baseURL: 'https://boomplaymovies-api.herokuapp.com/',
+    baseURL: 'http://localhost:4000/',
+    progress: false
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    meta: {
+      title: 'Boom Play Movies',
+      author: 'mosope.dev'
+    },
     manifest: {
+      name: 'Boom Play Movies',
+      short_name: 'Boom Play',
+      description: 'Never run out of movies and series to watch, from top nitch blockburster to specific recommendations personalized just for.',
       lang: 'en'
+    },
+    icon: {
+      fileName: 'icon.png',
+      sizes: [64, 120, 144, 152, 192, 384]
     }
   },
 
