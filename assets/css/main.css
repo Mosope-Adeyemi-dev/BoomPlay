@@ -32,11 +32,11 @@ a{
 }
 .pill{
     width: fit-content;
-    padding: 5px 5px;
+    padding: 5px 15px;
     color: #0FEFFD;
     background: rgba(29, 29, 29, 0.5);
     border-radius: 0px 8px;
-    font-size: 14px;
+    font-size: 15px;
 }
 .no-data-state{
     color: red;

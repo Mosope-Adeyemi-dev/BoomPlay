@@ -4,7 +4,7 @@
       Popular Tv Shows
       <img src="~/assets/icon/right-arrow.svg" alt="">
     </h2>
-    <div class="carousel-cards">
+    <div v-if="!isLoading" class="carousel-cards">
       <div
         v-for="movie in movies"
         :key="movie.id"
@@ -22,7 +22,7 @@
           </h3>
           <p v-if="showThis === movie.id" class="short-description" data-aos="fade-up">
             {{ movie.overview.slice(0, 300) }}...
-            <button class="more-info">
+            <button class="more-info" @click="$router.push(`/tv-shows/${movie.id}`)">
               More info
             </button>
           </p>
@@ -97,7 +97,7 @@ export default {
         }
       }).catch((onrejected) => {
         this.isLoading = false
-        this.$toasted.error(onrejected.response.data.message || 'An Error Occurred')
+        this.$toasted.error('An Error Occurred')
       })
     }
   }
