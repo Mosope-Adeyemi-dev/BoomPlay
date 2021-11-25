@@ -189,4 +189,9 @@ export default {
   color: silver;
   text-decoration: underline;
 }
+@media screen and (max-width: 600px) {
+  .login-card{
+    padding: 60px 20px;
+}
+}
 </style>

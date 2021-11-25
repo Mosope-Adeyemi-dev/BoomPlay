@@ -166,12 +166,22 @@ export default {
 }
 @media screen and (max-width: 600px) {
   .login-card{
-    padding: 60px 15px;
+    padding: 60px 20px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    height: fit-content;
+    width: 90%;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 400px ){
+   .login-card{
+    padding: 60px 20px;
     background: rgba(0, 0, 0, 0.75);
     border-radius: 4px;
     height: fit-content;
     width: 100%;
     margin: auto;
-}
+  }
 }
 </style>

@@ -227,9 +227,6 @@ export default {
   min-height: 80vh;
   height: fit-content;
   background-color: whitesmoke;
-  /* background: url('https://image.tmdb.org/t/p/w500/7q448EVOnuE3gVAx24krzO7SNXM.jpg'); */
-  /* background-repeat: no-repeat; */
-  /* background-size: cover; */
   display: flex;
   justify-content: center;
   border-bottom: 3px solid rgb(44, 42, 42);

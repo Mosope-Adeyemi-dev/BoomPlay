@@ -1,7 +1,7 @@
 <template>
   <nav :class="['nav-bar', { 'change-nav-background': !topOfPage}]">
     <div class="nav-logo">
-      <img src="~/assets/image/boomplay-logo.png" alt="boom play logo" @click="$router.push('/')">
+      <img src="~/assets/icon/nav-logo.svg" alt="boom play logo" @click="$router.push('/')">
     </div>
     <div v-if="$route.name.includes('sign-up')" class="nav-actions">
       <button class="select-language">
@@ -48,9 +48,9 @@ export default {
   .nav-bar {
     /* background: rgba(0, 0, 0, 0.4); */
     background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.945) 90%);
-    background: -moz-linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.945) 90%);
-    background: -o-linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.945) 90%);
-    background: -webkit-linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.945) 90%);
+    background-image: -moz-linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.945) 90%);
+    background-image: -o-linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.945) 90%);
+    /* background: -webkit-linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.945) 90%); */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -67,7 +67,7 @@ export default {
     align-items: center;
   }
   .nav-logo img {
-    width: 70px;
+    width: 50px;
     cursor: pointer;
   }
   .nav-actions {
