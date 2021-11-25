@@ -75,6 +75,7 @@ export default {
 }
 .prop-text{
   flex-basis: 50%;
+  width: 50%;
 }
 .extra-padding{
   padding-top: 60px;

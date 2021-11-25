@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeroSection />
-    <ValueProps />
+    <!-- <ValueProps /> -->
   </div>
 </template>
 

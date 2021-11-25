@@ -1,7 +1,7 @@
 <template>
   <div>
     <DashboardSideBar />
-    <div class="movie-details-container">
+    <div v-if="!detailsLoading && tvShowDetails.name" class="movie-details-container">
       <div v-if="!detailsLoading" class="movie-details">
         <div class="image-section">
           <img class="movie-poster" :src="`https://image.tmdb.org/t/p/w300/${tvShowDetails.poster_path}`" alt="">
@@ -104,7 +104,13 @@
         </div>
       </div>
     </div>
-    <div class="recommendations-section">
+    <div v-if="!detailsLoading && !tvShowDetails.name" class="no-data-state">
+      Movie with requested ID does not exist.
+      <NuxtLink to="/dashboard">
+        Back to Dashboard
+      </NuxtLink>
+    </div>
+    <div v-if="!isLoading && movies.length > 0" class="recommendations-section">
       <div class="top-section">
         <h2 class="section-title">
           Similar Tv Shows
@@ -113,7 +119,7 @@
       </div>
       <div class="recommendations">
         <div
-          v-for="movie in movies.slice(0, 12)"
+          v-for="movie in movies.slice(0, 15)"
           :key="movie.id"
           class="carousel-card"
           :style="`background: linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, rgba(29, 29, 29, 0.8) 80.79%), url('https://image.tmdb.org/t/p/w400/${movie.poster_path}');`"
@@ -137,14 +143,22 @@
         </div>
       </div>
     </div>
+    <div v-if="isLoading" class="carousel-cards">
+      <LoaderButton />
+    </div>
+    <div v-if="!isLoading && error.state === true" class="no-data-state">
+      {{ error.message }}
+    </div>
   </div>
 </template>
 
 <script>
 export default {
+  layout: 'dashboard',
   data () {
     return {
       detailsLoading: true,
+      isLoading: true,
       reconmmendationLoding: true,
       tvShowID: `${this.$route.params.tvShowID}`,
       tvShowDetails: {},
@@ -194,7 +208,11 @@ export default {
         }
       }).catch((onrejected) => {
         this.isLoading = false
-        this.$toasted.error('An Error Occurred')
+        this.error = {
+          state: true,
+          message: 'Service Unavailable'
+        }
+        // this.$toasted.error('An Error Occurred')
       })
     },
     formatDollar (num) {

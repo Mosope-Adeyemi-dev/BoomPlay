@@ -1,7 +1,7 @@
 <template>
   <nav :class="['nav-bar', { 'change-nav-background': !topOfPage}]">
     <div class="nav-logo">
-      <img src="~/assets/image/main-logo.svg" alt="boom play logo" @click="$router.push('/')">
+      <img src="~/assets/image/boomplay-logo.png" alt="boom play logo" @click="$router.push('/')">
     </div>
     <div v-if="$route.name.includes('sign-up')" class="nav-actions">
       <button class="select-language">
@@ -68,8 +68,9 @@ export default {
     cursor: pointer;
   }
   .nav-actions {
-    width: 250px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    column-gap: 20px;
     justify-content: space-between;
   }
   .nav-actions.flex-end{
@@ -115,4 +116,12 @@ export default {
     font-weight: 400;
     border-radius: 3px;
   }
+  @media screen and (max-width: 600px) {
+  .select-language{
+    visibility: hidden;
+  }
+  .nav-bar {
+    padding: 10px 20px;
+  }
+}
 </style>

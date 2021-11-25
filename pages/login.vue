@@ -74,12 +74,13 @@ export default {
           email: this.email,
           password: this.password
         }
-      }).then((onfufilled) => {
+      }).then((onfulfilled) => {
         this.isLoading = false
-        Cookies.set('email', onfufilled.data.userData.email)
-        Cookies.set('firstname', onfufilled.data.userData.firstname)
-        Cookies.set('lastname', onfufilled.data.userData.lastname)
-        Cookies.set('uuid', onfufilled.data.userData.uuid)
+        Cookies.set('email', onfulfilled.data.userData.email)
+        Cookies.set('firstname', onfulfilled.data.userData.firstname)
+        Cookies.set('lastname', onfulfilled.data.userData.lastname)
+        Cookies.set('uuid', onfulfilled.data.userData.uuid)
+        Cookies.set('token', onfulfilled.data.userData.token)
         this.$router.push('/dashboard')
       }).catch((onrejected) => {
         this.isLoading = false

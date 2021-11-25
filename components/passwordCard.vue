@@ -164,4 +164,14 @@ export default {
     outline: none;
     background: #333333;
 }
+@media screen and (max-width: 600px) {
+  .login-card{
+    padding: 60px 15px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    height: fit-content;
+    width: 100%;
+    margin: auto;
+}
+}
 </style>

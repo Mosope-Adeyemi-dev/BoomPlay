@@ -1,8 +1,8 @@
 <template>
   <div>
     <DashboardSideBar />
-    <div class="movie-details-container">
-      <div v-if="!detailsLoading" class="movie-details">
+    <div v-if="!detailsLoading && movieDetails.title" class="movie-details-container">
+      <div class="movie-details">
         <div class="image-section">
           <img class="movie-poster" :src="`https://image.tmdb.org/t/p/w300/${movieDetails.poster_path}`" alt="">
           <button class="watchlist-button">
@@ -10,10 +10,10 @@
           </button>
         </div>
         <div class="details-section">
-          <h1 class="movie-title">
+          <h1 class="show-title">
             {{ movieDetails.title }}
           </h1>
-          <div class="movie-genre">
+          <div v-if="movieDetails.genres" class="movie-genre">
             <span v-for="genre in movieDetails.genres.slice(0, 4)" :key="genre.id" class="pill">
               {{ genre.name }}
             </span>
@@ -28,7 +28,7 @@
               Im going to be great!
             </p>
           </div> -->
-          <div class="movie-description">
+          <div v-if="movieDetails.overview" class="movie-description">
             <h3>Overview</h3>
             <p class="description-text">
               {{ movieDetails.overview }}
@@ -74,7 +74,7 @@
                 {{ formatDollar(movieDetails.budget) }}
               </p>
             </div>
-            <div v-if="movieDetails.production_companies.length > 0" class="info-section">
+            <div v-if="movieDetails.production_companies" class="info-section">
               <h3>Production company</h3>
               <ul class="list">
                 <li v-for="company in movieDetails.production_companies.slice(0, 3)" :key="company.id">
@@ -86,7 +86,13 @@
         </div>
       </div>
     </div>
-    <div class="recommendations-section">
+    <div v-if="!detailsLoading && !movieDetails.title" class="no-data-state">
+      Movie with requested ID does not exist.
+      <NuxtLink to="/dashboard">
+        Back to Dashboard
+      </NuxtLink>
+    </div>
+    <div v-if="!isLoading && movies.length > 0" class="recommendations-section">
       <div class="top-section">
         <h2 class="section-title">
           Similar movies
@@ -95,7 +101,7 @@
       </div>
       <div class="recommendations">
         <div
-          v-for="movie in movies.slice(0, 12)"
+          v-for="movie in movies.slice(0, 15)"
           :key="movie.id"
           class="carousel-card"
           :style="`background: linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, rgba(29, 29, 29, 0.8) 80.79%), url('https://image.tmdb.org/t/p/w400/${movie.poster_path}');`"
@@ -111,7 +117,7 @@
             </h3>
             <p v-if="showThis === movie.id" class="short-description" data-aos="fade-up">
               {{ movie.overview.slice(0, 300) }}...
-              <button class="more-info" @click="$router.push(`/tv-shows/${movie.id}`)">
+              <button class="more-info" @click="$router.push(`/movies/${movie.id}`)">
                 More info
               </button>
             </p>
@@ -131,9 +137,11 @@
 
 <script>
 export default {
+  layout: 'dashboard',
   data () {
     return {
       detailsLoading: true,
+      isLoading: true,
       movieID: `${this.$route.params.movieID}`,
       movieDetails: {},
       movies: [],
@@ -156,12 +164,9 @@ export default {
       }).then((onfulfilled) => {
         this.detailsLoading = false
         this.movieDetails = onfulfilled.data.movieDetails
-        // eslint-disable-next-line no-console
-        console.log(onfulfilled.data)
       }).catch((onrejected) => {
         this.detailsLoading = false
-        // eslint-disable-next-line no-console
-        console.log(onrejected)
+        this.$toasted.error(onrejected.response.data.message)
       })
     },
     formatDollar (num) {
@@ -175,19 +180,22 @@ export default {
         headers: {
           'content-type': 'application/json'
         }
-      }).then((onfufilled) => {
+      }).then((onfulfilled) => {
         this.isLoading = false
-        if (!onfufilled.data.error) {
-          this.movies = onfufilled.data.movies
+        if (!onfulfilled.data.error) {
+          this.movies = onfulfilled.data.movies
         } else {
           this.error = {
             state: true,
-            message: onfufilled.data.message
+            message: onfulfilled.data.message
           }
         }
       }).catch((onrejected) => {
         this.isLoading = false
-        this.$toasted.error('An Error Occurred')
+        this.error = {
+          state: true,
+          message: 'Service Unavailable'
+        }
       })
     }
   }
@@ -239,7 +247,7 @@ export default {
   width: 60%;
   /* background: chocolate; */
 }
-.movie-title{
+.show-title{
   font-weight: bold;
   font-size: 50px;
   line-height: 90px;
@@ -306,7 +314,6 @@ export default {
     left: 0;
     position: absolute;
     padding: 20px;
-    /* background: rgba(0, 0, 0, 0.186); */
 }
 .section-title{
     width: 200px;
@@ -327,7 +334,7 @@ export default {
     overflow-y: hidden;
 }
 .recommendations-section{
-   width: 70%;
+    width: 70%;
     margin: auto;
     margin-top: 40px;
     margin-bottom: 40px;

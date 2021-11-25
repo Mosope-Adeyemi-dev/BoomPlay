@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie'
 export default {
   data () {
     return {
@@ -81,7 +82,8 @@ export default {
         url: `/movies/popular-tv-shows?page=${this.page || 1}`,
         method: 'GET',
         headers: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          Authorization: `Bearer ${Cookies.get('token')}`
         }
       }).then((onfufilled) => {
         this.isLoading = false
