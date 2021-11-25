@@ -145,7 +145,7 @@ export default {
 .carousel-card-responsive{
   display: none;
 }
-.carousel-card:hover, .carousel-card:focus{
+.carousel-card:hover, .carousel-card-responsive:hover, .carousel-card-responsive:focus, .carousel-card:focus{
     transform-origin: bottom;
     transform: scale(1.05);
 }

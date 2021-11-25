@@ -122,7 +122,7 @@
           v-for="movie in movies.slice(0, 15)"
           :key="movie.id"
           class="carousel-card"
-          :style="`background: linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, rgba(29, 29, 29, 0.8) 80.79%), url('https://image.tmdb.org/t/p/w400/${movie.poster_path}');`"
+          :style="`background-image: linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, rgba(29, 29, 29, 0.8) 80.79%), url('https://image.tmdb.org/t/p/w400/${movie.poster_path}');`"
           @mouseover="showThis=movie.id"
           @mouseleave="showThis=''"
         >
@@ -230,8 +230,7 @@ export default {
   display: flex;
   justify-content: center;
   border-bottom: 3px solid rgb(44, 42, 42);
-  padding-bottom: 20px;
-}
+  padding: 20px 0 20px;}
 .movie-details{
   width: 70%;
   /* background-color: blue; */
@@ -299,6 +298,7 @@ export default {
   display: grid;
   grid-template-columns: auto auto auto;
   text-align: left;
+  column-gap: 30px;
   margin-top: 10px;
 }
 .official-website{
@@ -353,7 +353,8 @@ export default {
     overflow-y: hidden;
 }
 .recommendations-section{
-   width: 70%;
+   /* width: 70%; */
+    width: fit-content;
     margin: auto;
     margin-top: 40px;
     margin-bottom: 40px;
@@ -364,5 +365,84 @@ export default {
 ::-webkit-scrollbar {
     width: 0;  /* Remove scrollbar space */
     background: transparent;  /* Optional: just make scrollbar invisible */
+}
+@media screen and (max-width: 1430px) {
+  .recommendations{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    row-gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+}
+@media screen and (max-width: 1300px) {
+.show-title{
+  font-size: 40px;
+  line-height: 50px;
+}
+.image-section{
+  display: none;
+}
+.details-section{
+  width: 100%;
+  margin: auto;
+}
+}
+@media screen and (max-width: 1000px) {
+   .recommendations{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    row-gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}  .carousel-card{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-width: 300px;
+    width: 300px;
+    height: 350px;
+    display: flex;
+    position: relative;
+    margin-right: 20px;
+    transition: all 1s;
+}
+}
+@media screen and (max-width: 800px) {
+  .recommendations{
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    row-gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.movie-details{
+  width: 90%;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
+}
+.grid-system{
+  grid-template-columns: auto auto;
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+}
+@media screen and (max-width: 400px) {
+  .grid-system{
+  grid-template-columns: auto;
+}
+
+.image-section{
+  display: block;
+}
+.movie-poster{
+  border-radius: 10px;
+  height: 400px;
+  width: 100%;
+}
 }
 </style>
