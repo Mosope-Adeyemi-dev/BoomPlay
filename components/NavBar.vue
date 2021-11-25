@@ -47,7 +47,10 @@ export default {
 <style scoped>
   .nav-bar {
     /* background: rgba(0, 0, 0, 0.4); */
-    background-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.945) 90%);
+    background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.945) 90%);
+    background: -moz-linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.945) 90%);
+    background: -o-linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.945) 90%);
+    background: -webkit-linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.945) 90%);
     display: flex;
     justify-content: space-between;
     align-items: center;
