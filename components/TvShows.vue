@@ -28,6 +28,30 @@
           </p>
         </div>
       </div>
+
+      <div
+        v-for="movie in movies"
+        :key="movie.id"
+        class="carousel-card-responsive"
+        :style="`background-image: linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, rgba(29, 29, 29, 0.8) 80.79%), url('https://image.tmdb.org/t/p/w400/${movie.poster_path}');`"
+        @mouseover="showThis=movie.id"
+        @mouseleave="showThis=''"
+      >
+        <div class="quiclk-info">
+          <p class="pill">
+            Rating {{ movie.vote_average }}
+          </p>
+          <h3 class="movie-title">
+            {{ movie.name }}
+          </h3>
+          <p v-if="showThis === movie.id" class="short-description" data-aos="fade-up">
+            {{ movie.overview.slice(0, 300) }}...
+            <button class="more-info" @click="$router.push(`/tv-shows/${movie.id}`)">
+              More info
+            </button>
+          </p>
+        </div>
+      </div>
     </div>
     <div v-if="isLoading" class="carousel-cards">
       <LoaderButton />
@@ -118,6 +142,9 @@ export default {
     /* margin-right: 20px; */
     transition: all 1s;
 }
+.carousel-card-responsive{
+  display: none;
+}
 .carousel-card:hover, .carousel-card:focus{
     transform-origin: bottom;
     transform: scale(1.05);
@@ -164,7 +191,10 @@ export default {
     padding-bottom: 10px;
 }
 .carousel-card{
-    min-width: 380px;
+  display: none;
+}
+.carousel-card-responsive{
+  min-width: 380px;
     width: 380px;
     height: 480px;
     display: flex;

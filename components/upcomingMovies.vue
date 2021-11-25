@@ -1,7 +1,7 @@
 <template>
   <div class="whole-carousel">
     <h2 class="section-title">
-      Upcoming movies
+      Trending movies
       <img src="~/assets/icon/right-arrow.svg" alt="">
     </h2>
     <div v-if="!isLoading" class="carousel-cards">
