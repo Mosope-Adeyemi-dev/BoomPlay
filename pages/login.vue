@@ -192,6 +192,12 @@ export default {
 @media screen and (max-width: 600px) {
   .login-card{
     padding: 60px 20px;
+    width: 90%;
+  }
 }
+@media screen and (max-width: 400px ){
+   .login-card{
+    width: 100%;
+  }
 }
 </style>
