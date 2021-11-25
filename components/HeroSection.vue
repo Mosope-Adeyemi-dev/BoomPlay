@@ -30,7 +30,7 @@
             >
               Get Started
             </button>
-            <button v-if="isLoading">
+            <button v-if="isLoading" class="sign-in-button">
               <loader-button />
             </button>
           </div>

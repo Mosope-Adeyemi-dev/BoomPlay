@@ -1,6 +1,6 @@
 <template>
   <div>
-    <DashboardSideBar />
+    <!-- <DashboardSideBar /> -->
     <div v-if="!detailsLoading && tvShowDetails.name" class="movie-details-container">
       <div v-if="!detailsLoading" class="movie-details">
         <div class="image-section">

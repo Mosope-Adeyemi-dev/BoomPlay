@@ -11,7 +11,7 @@
         In a time when monsters walk the Earth, humanity’s fight for its future sets Godzilla and Kong on a collision course that will see the two most powerful forces of nature on the planet collide in a spectacular battle for the ages.
       </p>
       <button class="watch-now-btn">
-        Watch now
+        More Info
       </button>
     </div>
   </div>
@@ -71,4 +71,36 @@ export default {
 .watch-now-btn:hover{
     background: linear-gradient(135.87deg, #0FEFFD 1.25%, #FF00F5 51.73%, rgba(15, 239, 253, 0.22) 77.22%);;
 }
+@media screen and (max-width: 800px) {
+  .hero-container{
+    min-height: 70vh;
+    height: fit-content;
+    padding-bottom: 30px;
+}
+  .hero-content{
+    width: 90%;
+    margin: auto;
+}
+  .title{
+    font-size: 40px;
+}
+.description{
+    width: 100%;
+    color: white;
+    line-height: 30px;
+}
+.watch-now-btn{
+    width: 100%;
+}
+}
+/* @media screen and (max-width: 800px) {
+  .title{
+    font-size: 40px;
+}
+.description{
+    width: 100%;
+    color: white;
+    line-height: 30px;
+}
+} */
 </style>

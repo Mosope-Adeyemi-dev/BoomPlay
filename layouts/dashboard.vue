@@ -1,5 +1,6 @@
 <template>
   <div>
+    <DashboardSideBar class="side-bar" />
     <UserAccount v-if="$route.name.includes('dashboard')" />
     <Nuxt />
   </div>
@@ -25,5 +26,10 @@ export default {
 <style>
 body{
   background-color: #1D1D1D;
+}
+@media screen and (max-width: 800px) {
+  .side-bar{
+    visibility: hidden;
+  }
 }
 </style>

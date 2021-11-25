@@ -1,8 +1,8 @@
 <template>
   <div>
-    <DashboardSideBar />
+    <!-- <DashboardSideBar /> -->
     <CarouselSlider />
-    <div class="movie-sections">
+    <div id="movie-grid" class="movie-sections">
       <NewReleases />
       <TvShows />
       <UpcomingMovies />

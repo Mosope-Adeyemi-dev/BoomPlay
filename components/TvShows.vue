@@ -9,7 +9,7 @@
         v-for="movie in movies"
         :key="movie.id"
         class="carousel-card"
-        :style="`background: linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, rgba(29, 29, 29, 0.8) 80.79%), url('https://image.tmdb.org/t/p/w500/${movie.poster_path}');`"
+        :style="`background-image: linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, rgba(29, 29, 29, 0.8) 80.79%), url('https://image.tmdb.org/t/p/w500/${movie.poster_path}');`"
         @mouseover="showThis=movie.id"
         @mouseleave="showThis=''"
       >
@@ -157,5 +157,20 @@ export default {
     width: 0;  /* Remove scrollbar space */
     background: transparent;  /* Optional: just make scrollbar invisible */
 }
-
+@media screen and (max-width: 800px) {
+  .whole-carousel{
+    padding-top: 25px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+}
+.carousel-card{
+    min-width: 380px;
+    width: 380px;
+    height: 480px;
+    display: flex;
+    position: relative;
+    /* margin-right: 20px; */
+    transition: all 1s;
+}
+}
 </style>

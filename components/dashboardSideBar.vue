@@ -1,26 +1,28 @@
 <template>
-  <div class="side-bar">
-    <div class="all-icons">
-      <div class="sidebar-item logo-div">
-        <NuxtLink to="/dashboard" class="item-icon">
-          <img src="~/assets/image/boomplay-logo.png" class="boomplay-logo" alt="boom play logo">
-        </NuxtLink>
-      </div>
-      <div class="button-icons">
-        <div class="sidebar-item">
+  <div>
+    <div class="side-bar">
+      <div class="all-icons">
+        <div class="sidebar-item logo-div">
           <NuxtLink to="/dashboard" class="item-icon">
-            <img src="~/assets/icon/home-icon.svg" alt="">
+            <img src="~/assets/image/boomplay-logo.png" class="boomplay-logo" alt="boom play logo">
           </NuxtLink>
         </div>
-        <div class="sidebar-item">
-          <NuxtLink to="" class="item-icon">
-            <img src="~/assets/icon/favorite-icon.svg" alt="">
-          </NuxtLink>
-        </div>
-        <div class="sidebar-item">
-          <NuxtLink to="">
-            <img src="~/assets/icon/settings-icon.svg" alt="">
-          </NuxtLink>
+        <div class="button-icons">
+          <div class="sidebar-item">
+            <NuxtLink to="/dashboard" class="item-icon">
+              <img src="~/assets/icon/home-icon.svg" alt="">
+            </NuxtLink>
+          </div>
+          <div class="sidebar-item">
+            <NuxtLink to="/dashboard/#movie-grid" class="item-icon">
+              <img src="~/assets/icon/movie-grid.svg" alt="">
+            </NuxtLink>
+          </div>
+          <div class="sidebar-item">
+            <NuxtLink to="">
+              <img src="~/assets/icon/favorite-icon.svg" alt="">
+            </NuxtLink>
+          </div>
         </div>
       </div>
     </div>
@@ -49,14 +51,14 @@ export default {
     backdrop-filter: blur(24px);
 }
 .button-icons{
-    height: 200px;
+    height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-top: 64px;
 }
 .boomplay-logo{
-    width: 50px;
+    width: 45px;
 }
 .sidebar-item{
     width: 40px;

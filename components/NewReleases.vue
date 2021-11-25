@@ -160,4 +160,22 @@ export default {
     width: 0;  /* Remove scrollbar space */
     background: transparent;
 }
+@media screen and (max-width: 800px) {
+  .whole-carousel{
+    padding-top: 25px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+}
+.carousel-card{
+    background-repeat: no-repeat;
+    background-position: center;
+    min-width: 290px;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    position: relative;
+    margin-right: 20px;
+    transition: all 1s;
+}
+}
 </style>
