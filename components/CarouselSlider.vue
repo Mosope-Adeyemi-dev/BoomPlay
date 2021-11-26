@@ -29,7 +29,7 @@ export default {
     top: 0;
     position: fixed;
     /* z-index: -2; */
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.37), rgba(0, 0, 0, 0.137)), url('assets/image/no1-movie.svg');
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.616), rgba(0, 0, 0, 0.555)), url('assets/image/no1-movie.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
