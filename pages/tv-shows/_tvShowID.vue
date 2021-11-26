@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <DashboardSideBar /> -->
     <div v-if="!detailsLoading && tvShowDetails.name" class="movie-details-container">
       <div v-if="!detailsLoading" class="movie-details">
         <div class="image-section">
@@ -22,12 +21,6 @@
             <img class="imdb-logo" src="~/assets/icon/imdb-logo.svg" alt="imdb logo">
             {{ tvShowDetails.vote_average }} / 10.0
           </p>
-          <!-- <div class="movie-description">
-            <h3>Title</h3>
-            <p>
-              Im going to be great!
-            </p>
-          </div> -->
           <div v-if="tvShowDetails.overview" class="movie-description">
             <h3>Overview</h3>
             <p class="description-text">
@@ -41,15 +34,6 @@
             </p>
           </div>
           <div class="grid-system">
-            <!-- <div class="info-section">
-              <h3>Guidance</h3>
-              <p v-if="tvShowDetails.adult === true">
-                PG 18+
-              </p>
-              <p v-if="tvShowDetails.adult === false">
-                PG 13+
-              </p>
-            </div> -->
             <div v-if="tvShowDetails.first_air_date" class="info-section">
               <h3>First air date</h3>
               <p class="movie-release-date">
@@ -143,7 +127,7 @@
         </div>
       </div>
     </div>
-    <div v-if="isLoading" class="carousel-cards">
+    <div v-if="isLoading" class="load-state">
       <LoaderButton />
     </div>
     <div v-if="!isLoading && error.state === true" class="no-data-state">
@@ -153,6 +137,7 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie'
 export default {
   layout: 'dashboard',
   data () {
@@ -177,15 +162,14 @@ export default {
         url: `/tv-shows/details?tvShowID=${this.tvShowID}`,
         method: 'GET',
         headers: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          Authorization: `Bearer ${Cookies.get('token')}`
         }
       }).then((onfulfilled) => {
         this.detailsLoading = false
         this.tvShowDetails = onfulfilled.data.tvShowDetails
-        // eslint-disable-next-line no-console
       }).catch((onrejected) => {
         this.detailsLoading = false
-        // eslint-disable-next-line no-console
       })
     },
     getReconmmendations () {
@@ -194,7 +178,8 @@ export default {
         url: `/tv-shows/recommendations?page=${this.page || 1}&tvShowID=${this.tvShowID}`,
         method: 'GET',
         headers: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          Authorization: `Bearer ${Cookies.get('token')}`
         }
       }).then((onfufilled) => {
         this.isLoading = false

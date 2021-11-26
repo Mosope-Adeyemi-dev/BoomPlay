@@ -3,18 +3,13 @@
     <div class="close-sidebar" data-aos="fade-left" @click="$emit('close-sidebar')">
       <img src="~/assets/icon/close-menu.svg" alt="close icon" @click="$emit('close-sidebar')">
     </div>
-    <div class="menu-content">
+    <div class="menu-content" @click="$emit('close-sidebar')">
       <div class="logo-div">
         <NuxtLink to="/dashboard" class="item-icon">
           <img src="~/assets/image/boomplay-logo.png" class="boomplay-logo" alt="boom play logo">
         </NuxtLink>
       </div>
       <div class="all-icons">
-        <!-- <div class="sidebar-item logo-div">
-          <NuxtLink to="/dashboard" class="item-icon">
-            <img src="~/assets/image/boomplay-logo.png" class="boomplay-logo" alt="boom play logo">
-          </NuxtLink>
-        </div> -->
         <div class="button-icons">
           <div class="sidebar-item" @click="$router.push('/dashboard')">
             <p to="/dashboard" class="item-icon">

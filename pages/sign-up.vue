@@ -1,12 +1,14 @@
 <template>
   <div>
     <HeroSection />
-    <!-- <ValueProps /> -->
   </div>
 </template>
 
 <script>
 export default {
-  layout: 'main'
+  layout: 'main',
+  head: {
+    title: 'Login || We-watch-movies.com'
+  }
 }
 </script>

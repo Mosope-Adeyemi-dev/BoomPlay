@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <DashboardSideBar /> -->
     <CarouselSlider />
     <div id="movie-grid" class="movie-sections">
       <NewReleases />
@@ -12,12 +11,16 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie'
 export default {
   layout: 'dashboard',
   data () {
     return {
       isLoading: false
     }
+  },
+  head: {
+    title: `Welcome ${Cookies.get('firstname') || 'dashboard'}`
   }
 }
 </script>

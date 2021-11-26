@@ -61,6 +61,9 @@ export default {
       isLoading: false
     }
   },
+  head: {
+    title: 'Login'
+  },
   methods: {
     togglePasswordVisibility () {
       this.visibilityState === 'password' ? this.visibilityState = 'text' : this.visibilityState = 'password'

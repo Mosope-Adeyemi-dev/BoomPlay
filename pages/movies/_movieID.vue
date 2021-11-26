@@ -21,12 +21,6 @@
             <img class="imdb-logo" src="~/assets/icon/imdb-logo.svg" alt="imdb logo">
             {{ movieDetails.vote_average }} / 10.0
           </p>
-          <!-- <div class="movie-description">
-            <h3>Title</h3>
-            <p>
-              Im going to be great!
-            </p>
-          </div> -->
           <div v-if="movieDetails.overview" class="movie-description">
             <h3>Overview</h3>
             <p class="description-text">
@@ -124,17 +118,17 @@
         </div>
       </div>
     </div>
-    <div v-if="isLoading" class="carousel-cards">
+    <div v-if="isLoading" class="load-state">
       <LoaderButton />
     </div>
     <div v-if="!isLoading && error.state === true" class="no-data-state">
       {{ error.message }}
     </div>
   </div>
-  <!-- </div> -->
 </template>
 
 <script>
+import Cookies from 'js-cookie'
 export default {
   layout: 'dashboard',
   data () {
@@ -158,7 +152,8 @@ export default {
         url: `/movies/details?movieID=${this.movieID}`,
         method: 'GET',
         headers: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          Authorization: `Bearer ${Cookies.get('token')}`
         }
       }).then((onfulfilled) => {
         this.detailsLoading = false
@@ -177,7 +172,8 @@ export default {
         url: `/movies/recommendations?page=${this.page || 1}&movieID=${this.movieID}`,
         method: 'GET',
         headers: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          Authorization: `Bearer ${Cookies.get('token')}`
         }
       }).then((onfulfilled) => {
         this.isLoading = false

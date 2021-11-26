@@ -33,17 +33,8 @@ export default {
   methods: {
     signOut () {
       this.$router.push('/')
-      Cookies.set('token', undefined)
+      Cookies.remove('token')
     }
-    // toggleSideBar () {
-    //   if (this.sideBarVisibility) {
-    //     this.sideBarVisibility = false
-    //     this.$emit('close-sidebar')
-    //   } else {
-    //     this.sideBarVisibility = true
-    //     this.$emit('show-sidebar')
-    //   }
-    // }
   }
 }
 </script>
@@ -72,8 +63,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* position: fixed; */
-    /* right: 100px; */
     width: 40px;
     height: 40px;
     border-radius: 25px;
@@ -88,7 +77,6 @@ export default {
     transform: scale(1.05);
   }
   .firstname {
-    /* color: silver; */
     color: white;
     font-size: 18px;
     font-weight: 500;
@@ -112,12 +100,9 @@ export default {
       display: none;
     }
     .menu-icon.user-account {
-      /* display: block; */
       display: flex;
       justify-content: center;
       align-items: center;
-      /* position: fixed; */
-      /* right: 100px; */
       width: 40px;
       height: 40px;
       border-radius: 25px;

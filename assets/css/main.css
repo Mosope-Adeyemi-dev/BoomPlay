@@ -6,7 +6,6 @@
     width: 1100px;
     color: white;
     margin: auto;
-    /* background-color: red; */
 }
 .whole-bg-container{
     height: 100vh;
@@ -59,7 +58,6 @@ a{
 .short-description{
     color: white;
     font-size: 15px;
-    /* margin-bottom: 10px; */
 }
 .more-info{
     color: white;
@@ -85,6 +83,12 @@ a{
     column-gap: 20px;
     align-items: center;
     grid-template-columns: repeat(3, auto);
+}
+.load-state{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 @media screen and (max-width: 1310px) {
     .props-container{

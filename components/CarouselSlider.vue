@@ -2,13 +2,13 @@
   <div class="hero-container">
     <div class="hero-content">
       <p class="pill">
-        Science Fiction
+        Fantasy
       </p>
       <h3 class="title">
-        Godzilla vs. Kong
+        Zack Snyder's Justice League
       </h3>
       <p class="description">
-        In a time when monsters walk the Earth, humanity’s fight for its future sets Godzilla and Kong on a collision course that will see the two most powerful forces of nature on the planet collide in a spectacular battle for the ages.
+        Determined to ensure Superman's ultimate sacrifice was not in vain, Bruce Wayne aligns forces with Diana Prince with plans to recruit a team of metahumans to protect the world from an approaching threat of catastrophic proportions.
       </p>
       <button class="watch-now-btn">
         More Info
