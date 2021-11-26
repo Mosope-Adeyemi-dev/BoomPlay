@@ -51,22 +51,22 @@ export default {
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
-  // pwa: {
-  //   meta: {
-  //     title: 'Boom Play Movies',
-  //     author: 'mosope.dev'
-  //   },
-  //   manifest: {
-  //     name: 'Boom Play Movies',
-  //     short_name: 'Boom Play',
-  //     description: 'Never run out of movies and series to watch, from top nitch blockburster to specific recommendations personalized just for.',
-  //     lang: 'en'
-  //   },
-  //   icon: {
-  //     fileName: 'icon.png',
-  //     sizes: [64, 120, 144, 152, 192, 384]
-  //   }
-  // },
+  pwa: {
+    meta: {
+      title: 'We Watch Movies',
+      author: 'mosope.dev'
+    },
+    manifest: {
+      name: 'We Watch Movies',
+      short_name: 'We Watch',
+      description: 'Never run out of movies and series to watch, from top notch blockburster to specific recommendations personalized just for.',
+      lang: 'en'
+    },
+    icon: {
+      fileName: 'icon.png',
+      sizes: [64, 120, 144, 152]
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
