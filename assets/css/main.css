@@ -38,6 +38,14 @@ a{
     background: rgba(29, 29, 29, 0.5);
     border-radius: 0px 8px;
     font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.back{
+    position: relative;
+    z-index: 4;
+    margin-left: 20%;
 }
 .no-data-state{
     color: red;
@@ -71,6 +79,12 @@ a{
     font-weight: 500;
     font-size: 22px;
     line-height: 32px;
+}
+.section-1 {
+    display: grid;
+    column-gap: 20px;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
 }
 @media screen and (max-width: 1310px) {
     .props-container{

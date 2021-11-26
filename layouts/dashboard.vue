@@ -1,7 +1,8 @@
 <template>
   <div>
+    <MobileSideBar v-if="sideBarVisible" class="mobile-side-bar" @close-sidebar="sideBarVisible = false" />
     <DashboardSideBar class="side-bar" />
-    <UserAccount v-if="$route.name.includes('dashboard')" />
+    <UserAccount @show-sidebar="sideBarVisible = true" />
     <Nuxt />
   </div>
 </template>
@@ -9,6 +10,11 @@
 <script>
 import Cookies from 'js-cookie'
 export default {
+  data () {
+    return {
+      sideBarVisible: false
+    }
+  },
   mounted () {
     this.checkCookies()
   },
@@ -27,9 +33,15 @@ export default {
 body{
   background-color: #1D1D1D;
 }
+.mobile-side-bar{
+  display: none;
+}
 @media screen and (max-width: 800px) {
   .side-bar{
     visibility: hidden;
+  }
+  .mobile-side-bar{
+    display: block;
   }
 }
 </style>

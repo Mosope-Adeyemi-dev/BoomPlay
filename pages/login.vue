@@ -79,7 +79,6 @@ export default {
         Cookies.set('email', onfulfilled.data.userData.email)
         Cookies.set('firstname', onfulfilled.data.userData.firstname)
         Cookies.set('lastname', onfulfilled.data.userData.lastname)
-        Cookies.set('uuid', onfulfilled.data.userData.uuid)
         Cookies.set('token', onfulfilled.data.userData.token)
         this.$router.push('/dashboard')
       }).catch((onrejected) => {

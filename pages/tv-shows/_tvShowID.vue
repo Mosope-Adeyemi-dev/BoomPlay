@@ -14,7 +14,7 @@
             {{ tvShowDetails.name }}
           </h1>
           <div class="movie-genre">
-            <span v-for="genre in tvShowDetails.genres.slice(0, 4)" :key="genre.id" class="pill">
+            <span v-for="genre in tvShowDetails.genres.slice(0, 2)" :key="genre.id" class="pill">
               {{ genre.name }}
             </span>
           </div>
@@ -230,7 +230,7 @@ export default {
   display: flex;
   justify-content: center;
   border-bottom: 3px solid rgb(44, 42, 42);
-  padding: 20px 0 20px;}
+  padding: 40px 0 20px;}
 .movie-details{
   width: 70%;
   /* background-color: blue; */
