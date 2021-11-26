@@ -15,7 +15,10 @@
     <div v-if="$route.name.includes('dashboard')" class="menu-icon user-account" @click="$emit('show-sidebar')">
       <img src="~/assets/icon/menu-icon-white.svg" alt="">
     </div>
-    <div v-if="$route.name.includes('movies' || 'tv-shows')" class="menu-icon user-account" @click="$emit('show-sidebar')">
+    <div v-if="$route.name.includes('tv-shows')" class="menu-icon user-account" @click="$emit('show-sidebar')">
+      <img src="~/assets/icon/menu-icon.svg" alt="">
+    </div>
+    <div v-if="$route.name.includes('movies')" class="menu-icon user-account" @click="$emit('show-sidebar')">
       <img src="~/assets/icon/menu-icon.svg" alt="">
     </div>
   </div>
