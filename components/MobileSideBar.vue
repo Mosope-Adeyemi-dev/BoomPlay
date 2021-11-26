@@ -17,38 +17,31 @@
         </div> -->
         <div class="button-icons">
           <div class="sidebar-item" @click="$router.push('/dashboard')">
-            <NuxtLink to="/dashboard" class="item-icon">
+            <p to="/dashboard" class="item-icon">
               <img src="~/assets/icon/home-icon.svg" alt="home icon">
-            </NuxtLink>
+            </p>
             <span>
               Dashboard
             </span>
           </div>
           <div class="sidebar-item" @click="$router.push('/dashboard/#movie-grid')">
-            <NuxtLink to="" class="item-icon">
+            <p to="" class="item-icon">
               <img src="~/assets/icon/movie-grid.svg" alt="movies icon">
-            </NuxtLink>
+            </p>
             <span>
               Movies
             </span>
           </div>
           <div class="sidebar-item">
-            <NuxtLink to="">
+            <p to="">
               <img src="~/assets/icon/favorite-icon.svg" alt="star icon">
-            </NuxtLink>
-            <p>
-              Favorites
             </p>
+            <span>
+              Favorites
+            </span>
           </div>
-          <div v-if="$route.name.includes('dashboard')" class="section-1 sidebar-item">
-            <!-- <h5 class="firstname">
-          <i>Hi</i>, {{ firstname }}
-        </h5> -->
-            <!-- <div class="user-account">
-          <img class="user-icon" src="~/assets/icon/user-account.svg" alt="">
-        </div> -->
+          <div class="section-1 sidebar-item">
             <button class="log-out" @click="signOut">
-              <!-- <img src="~/assets/icon/logout.svg" alt="log out"> -->
               Sign Out
             </button>
           </div>
@@ -104,7 +97,7 @@ export default {
     background: black;
     top: 0;
     position: fixed;
-    padding-top: 40px;
+    padding-top: 20px;
     background: rgba(29, 29, 29, 0.973);
     box-shadow: 0px 40px 40px 8px rgba(0, 0, 0, 0.16);
     backdrop-filter: blur(24px);
@@ -115,9 +108,11 @@ export default {
     padding: 5px 20px;
     display: flex;
     align-items: center;
-    column-gap: 20px;
     color: white;
     font-size: 20px;
+}
+.sidebar-item span{
+    margin-left: 15px;
 }
 .sidebar-item:hover{
     background-color: gray;
