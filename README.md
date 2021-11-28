@@ -7,6 +7,8 @@ Technology and tools used on the frontend are:
 > - Cookies
 > - Axios
 > - Postman
+> - CSS
+> - JavaScript
 > - Animate On Scroll (AOS)
 
 ### To try out the deployed application [Click Here!](https://we-watch-movies.netlify.app/sign-up)
