@@ -46,7 +46,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'https://boomplaymovies-api.herokuapp.com/',
+    baseURL: 'https://boomplay-api.onrender.com/',
     progress: false
   },
 
