@@ -131,7 +131,7 @@
       <LoaderButton />
     </div>
     <div v-if="!isLoading && error.state === true" class="no-data-state">
-      {{ error.message }}
+      <!-- {{ error.message }} -->
     </div>
   </div>
 </template>

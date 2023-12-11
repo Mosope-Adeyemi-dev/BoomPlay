@@ -18,11 +18,11 @@
               <img src="~/assets/icon/movie-grid.svg" alt="">
             </NuxtLink>
           </div>
-          <div class="sidebar-item">
-            <NuxtLink to="">
+          <!-- <div class="sidebar-item">
+            <NuxtLink to="/watchlist">
               <img src="~/assets/icon/favorite-icon.svg" alt="">
             </NuxtLink>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
